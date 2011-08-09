@@ -1,0 +1,200 @@
+/* Facebook Styling for Demo */
+body {
+  background:#fff;
+  font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+  font-size:11px;
+  #header {
+    background:#3b5988;
+    height:41px;
+  }
+  a {
+    color:#3b5988;
+    font-weight:bold;
+    text-decoration:none;
+  }
+  .container_12 {
+    .grid_8 {
+      width:493px;
+    }
+  }
+  .main, #feed {
+    border-left:1px solid #b3b3b3;
+    padding-left:20px;
+    h2#preview_h2 {
+      color:#1C2A47;
+      font-size:16px; 
+      line-height:22px;
+      span {
+        background:transparent url("https://s-static.ak.facebook.com/rsrc.php/v1/yi/r/XY1BTEJBstt.png") no-repeat -51px -276px;
+        width:16px;
+        height:18px;
+        float:left;
+        display:block;
+        margin-right:6px;
+      }
+    }
+  }
+  .main {
+    padding-top:10px;
+    #preview_form {
+      position:relative;
+    }
+    div.field {
+      margin-top:20px;
+      position:relative;
+      border:1px solid #B4BBCD;
+      padding:10px;
+      label {
+        position:absolute;
+        color:#777;
+        font-size:13px;
+        left:14px;
+        top:13px;
+      }
+      textarea {
+        border:1px solid #BDC7D8;
+        color:#333;
+        width:462px;
+        resize:none;
+        font-size:13px;
+        padding:3px;
+        line-height:16px;
+        height:16px;
+        cursor:text;
+      }
+    }
+    #id_submit {
+      background:#eee url("https://s-static.ak.facebook.com/rsrc.php/v1/yf/r/_IKHHfAgFQe.png") 0px -49px;
+      border:1px solid #999;
+      border-bottom:1px solid #888;
+      box-shadow:0 1px 0 rgba(0, 0, 0, 0.1);
+      -moz-box-shadow:0 1px 0 rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow:0 1px 0 rgba(0, 0, 0, 0.1);
+      -o-box-shadow:0 1px 0 rgba(0, 0, 0, 0.1);
+      padding:2px 4px;
+      line-height:normal !important;
+      white-space:nowrap;
+      cursor:pointer;
+      font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+      font-size:13px;
+      color:#333;
+      font-weight:bold;
+      text-align:center;
+      outline:none;
+      right:12px;
+      top:11px;
+      position:absolute;
+      &.submit {
+        background-color:#5B74A8;
+        background-position:0px -98px;
+        border-color:#29447E #29447E #1A356E;
+        color:#fff;
+        top:inherit;
+        bottom:10px;
+      }
+    }
+  }
+  #preview_form.preview {
+    margin-top:20px;
+    position:relative;
+    border:1px solid #B4BBCD;
+    padding:10px;
+    #form_field {
+      display:none;
+    }
+    a.title {
+      color:#000;
+      font-size:12px;
+      cursor:pointer;
+      &:hover{
+        background:#ff9;
+      }
+    }
+    a.description {
+      color:#000;
+      font-size:11px;
+      cursor:pointer;
+      &:hover {
+        background:#ff9;
+      }
+    }
+    #display {
+      .controls {
+        position:static;
+      }
+      .wrap {
+        padding-bottom:20px;
+      }
+      p.url {
+        white-space:nowrap;
+        overflow:hidden;
+        width:250px;
+        color:#666;
+        margin-bottom:5px;
+      }
+    }
+    #left,#right {
+      width:25px;
+      height:22px;
+      display:block;
+      text-indent:-9999em;
+      outline:none;
+      top:auto;
+      bottom:10px;
+    }
+    #left{
+      left:10px;
+      background:transparent url("https://s-static.ak.facebook.com/rsrc.php/v1/yi/r/8OjNXDy3pHp.gif") no-repeat -50px -83px;
+      &:hover {
+        background-position:0px -83px;
+      }
+      &:active {
+        background-position:-100px -83px;
+      }
+    }
+    #right{
+      right:auto;
+      left:35px;
+      background:transparent url("https://s-static.ak.facebook.com/rsrc.php/v1/yi/r/8OjNXDy3pHp.gif") no-repeat -75px -83px;
+      &:hover {
+        background-position:-25px -83px;
+      }
+      &:active {
+        background-position:-125px -83px;
+      }
+    }
+  }
+}
+#feed {
+  .item {
+    clear:both;
+    border-color:#E9E9E9;
+  }
+  .profilepic {
+    width:50px;
+    margin-right:10px;
+    float:left;
+  }
+  h6 {
+    font-size:11px;
+    font-weight:bold;
+    color:#3B5998;
+    margin-bottom:5px;
+  }
+  .embed {
+    margin:0 0 0 60px;
+    p {
+      font-size:11px;
+      line-height:14px;
+      &.via {
+        clear:left;
+        .postIcon {
+          width:16px;
+          height:16px;
+          float:left;
+          margin-right:3px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+#container {
+  width: 600px;
+  margin: 50px auto; }
+
+body {
+  background-color: #fff; }
+
+div.preview_form {
+  margin: 1em 0; }
+
+#link {
+  width: 490px;
+  margin: 10px auto; }
+  #link textarea {
+    width: 400px;
+    padding: 5px;
+    font-size: 1.1em; }
+
+#loading {
+  background-image: url(../images/loading.gif);
+  width: 200px;
+  height: 15px;
+  margin: 50px auto;
+  background-repeat: no-repeat;
+  display: none; }
+
+#images {
+  position: absolute;
+  width: 300em;
+  margin: 0px;
+  padding: 0px;
+  left: 0px; }
+  #images li {
+    list-style: none;
+    float: left;
+    margin: 0px;
+    padding: 0px; }
+  #images img {
+    width: 100px; }
+
+#left, #right {
+  display: block;
+  position: absolute;
+  top: 0; }
+
+#left {
+  left: 0px; }
+
+#right {
+  right: 0; }
+
+#display {
+  width: 490px;
+  margin: 10px auto;
+  display: none; }
+  #display .items {
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+    padding: 0px;
+    margin: -19px 0 0 0px;
+    width: 100px; }
+  #display .controls {
+    margin: 0 0 3px 0;
+    position: relative;
+    height: 16px;
+    z-index: 10000; }
+  #display .wrap {
+    width: 100px;
+    float: left;
+    margin: 0 10px 0 0; }
+  #display input[type="text"] {
+    width: 400px;
+    padding: 3px;
+    border: 1px solid #999; }
+  #display textarea {
+    border: 1px solid #999;
+    width: 400px;
+    height: 100px;
+    padding: 3px; }
+
+#attributes {
+  width: 400px;
+  margin: 0 0 0 110px; }
+  #attributes p {
+    line-height: 1.2em; }
+  #attributes a {
+    color: #111;
+    text-decoration: none; }
+    #attributes a:hover {
+      background-color: #FF9; }
+
+img.favicon, .favicon img {
+  width: 16px;
+  height: 16px; }
+
+/*
+Feed Styles
+*/
+#feed {
+  background-color: white;
+  padding: 0 10px; }
+
+.item {
+  padding: 10px 0 0 0;
+  margin: 0 0 10px 0;
+  border-top: 1px solid #DDD; }
+  .item.first {
+    border-top: none; }
+
+.container_12 .no_thumbnail {
+  float: left;
+  border-right: 2px solid #DDD;
+  height: 75px; }
+.container_12 .thumbnail {
+  margin: 5px 10px 10px 0;
+  width: 105px; }
+  .container_12 .thumbnail a {
+    display: table-cell;
+    width: 100px;
+    height: 75px;
+    overflow: hidden;
+    background-color: black;
+    vertical-align: middle;
+    position: relative;
+    text-align: center; }
+  .container_12 .thumbnail img {
+    max-width: 100px;
+    vertical-align: middle; }
+
+.video .player_overlay, .rich .player_overlay {
+  background-image: url(../images/play.png);
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 3px;
+  bottom: 3px; }
+
+.info {
+  font-size: 12px;
+  line-height: 15px;
+  position: relative; }
+  .info a {
+    display: block;
+    text-decoration: none; }
+    .info a:hover {
+      text-decoration: underline; }
+    .info a.title {
+      margin: 5px 0 0;
+      max-width: 400px; }
+    .info a.provider {
+      font-size: 11px; }
+  .info p {
+    color: #666;
+    margin: 5px 0; }
+  .info .close {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    font-size: 13px;
+    display: none; }

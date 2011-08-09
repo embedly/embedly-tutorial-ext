@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/ext-core.js" type="text/javascript" ></script>
+    <script src="js/jsonp.js" type="text/javascript" ></script>
+    <script src="js/config.js" type="text/javascript" ></script>
+    <script src="js/preview.js" type="text/javascript" ></script>
+    
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/grid.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="alternate stylesheet" href="css/plus.css" title="plus" />
+    <link rel="alternate stylesheet" href="css/fb.css" title="fb" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <div id="main" role="main" class="container_12">
+      <div class="grid_8 push_2 main">
+        <div class="preview_form">
+          <h2 id="preview_h2"><span></span>Stream</h2>
+          <form id="preview_form" method="post" action=".">
+            <div class="field" id="form_field">
+              <label for="id_status" id="status_label">Share what's new...</label>
+              <textarea name="status" id="id_status" rows="1"></textarea>
+            </div>
+            <div id="loading"></div>
+            <div id="display"></div>
+            <input id="id_submit" type="submit" class="disabled" value="Share"/>
+          </form>
+        </div>
+      </div>
+      <div id="feed" class="grid_8 push_2"></div>
+      <div class="clear"></div>
+    </div>
+  </body>
+</html>

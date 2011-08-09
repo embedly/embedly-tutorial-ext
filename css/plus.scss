@@ -1,0 +1,148 @@
+body {
+  font:13px/1.4 Arial,sans-serif;
+}
+div.main {
+  border-left:1px solid #ddd;
+  border-right:1px solid #ddd;
+}
+h2 {
+  font-size:18px;
+  color:#333;
+  font-weight:normal;
+  margin:1em 0 0.5em;
+}
+div.preview_form {
+  margin:2em;
+  div.field {
+    position:relative;
+  }
+  label {
+    color:#999;
+    position:absolute;
+    left:15px;
+    top:10px;
+  }
+  textarea {
+    border:1px solid #ddd;
+    padding:1em 1em 0;
+    width:540px;
+    line-height:1.4em;
+    cursor:text;
+    resize: none;
+  }
+  button, input#id_submit {
+    background-color: #3D9400;
+    border: 1px solid #29691D;
+    color: #FFFFFF;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 2px 2px;
+    cursor: default;
+    font-size: 11px;
+    font-weight: bold;
+    height: 27px;
+    line-height: 27px;
+    min-width: 54px;
+    outline: none;
+    padding: 0 8px;
+    text-align: center;
+    margin:1em 0;
+    &:hover{
+      background-color:#368200;
+    }
+    &.disabled {
+      opacity:0.5;
+      -moz-opacity:0.5;
+      -webkit-opacity:0.5;
+      -o-opacity:0.5;
+      &:hover{
+        background-color: #3D9400;
+      }
+    }
+  }
+}
+#display, #loading {
+  border:1px solid #ddd;
+  border-top:none;
+  width:540px;
+  padding:1em;
+  margin:-2px 0 0;
+}
+#loading {
+  text-align:center;
+  background-position:center center;
+}
+
+#display {
+  .controls {
+    background:rgba(0,0,0,0.7);
+    height:20px;
+    a.button {
+      text-decoration:none;
+      color:#999;
+      padding:2px 5px;
+      outline:none;
+      &:hover {
+        color:#fff;
+      }
+    }
+  }
+  .items {
+    margin-top:-23px;
+  }
+  a.title {
+    color:#3366CC;
+    font-weight:bold;
+    display:block;
+    margin-bottom:0.25em;
+  }
+  input.title {
+    display:block;
+    margin-bottom:0.25em;
+    width:490px;
+  }
+  .description {
+    line-height:1.4em;
+  }
+  img.favicon {
+    float:left;
+    margin:0 5px 5px 0;
+  }
+  #wrap {
+    clear:left;
+  }
+}
+#feed {
+  padding:0;
+  margin:0 10px;
+  border:1px solid #ddd;
+  border-width:0px 1px;
+  .item {
+    padding:1em 2em;
+    border-bottom:1px solid #ddd;
+    margin:0;
+    &.first {
+      border-top:1px solid #ddd;
+    }
+    .favicon {
+      float:left;
+      margin:0 5px 5px 0;
+    }
+    a.title {
+      color:#3366CC;
+      font-weight:bold;
+      display:block;
+      margin-bottom:0.25em;
+    }
+    .thumbnail {
+      clear:left;
+      margin-left:5px;
+    }
+    .info {
+      font:13px/1.4 arial,sans-serif;
+      color:#333;
+      p {
+        color:#333;
+      }
+    }
+  }
+}
