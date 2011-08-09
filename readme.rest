@@ -79,7 +79,7 @@ from and how to use it.
 
 type
     
-    The type of the response that we got back from the server. %90 of the time
+    The type of the response that we got back from the server. 90% of the time
     you will get back a ``type`` of ``html``, but another very common one is
     ``image``. There is a whole list of `response types 
     <http://embed.ly/docs/endpoints/response#response-types>`_, but generally
@@ -223,7 +223,7 @@ object
         }
     
     Don't bother messing with the height. People know how to scroll, so designs
-    that are tolerate to different heights of images are the best.
+    that are tolerant to different heights of images are the best.
 
 There are two sections to the feed; retrieval and display. Retrieval is the
 long section that describes grabbing metadata from Embedly and allowing the
@@ -329,8 +329,8 @@ This will catch any url as long as the user has entered the ``http`` or
 ``https`` scheme. As we know the scheme is becoming less and less prevalent and
 most users expect it to work if they leave out the ``http://``. For example it
 shouldn't matter if a user enters nyti.ms/qdGs9A or http://nyti.ms/qdGs9A. You
-could be clever here and just update the original regex, but I'm not that smart
-, so we will create a new one.
+could be clever here and just update the original regex, but I'm not today
+, so I will create a new one.
 
     var urlexp = /[-\w]+(\.[a-z]{2,})+(\S+)?(\/|\/[\w#!:.?+=&%@!\-\/])?/g;
     
@@ -352,10 +352,10 @@ that URL. I used ``jsonp.js`` that was bundled in ``examples/jsonp`` in the Ext
 Core download. Here is the code to get it done, then we will go into all the
 available options::
 
-    // Sets up the params we are going to use in the request.
+    // Sets up the parameters we are going to use in the request.
     params = {
       url:url, 
-      key:':key', 
+      key:':key', // replace with your key. 
       autoplay:true,
       maxwidth:500,
       wmode : 'opaque',
@@ -370,7 +370,7 @@ available options::
       callback: Preview.metadataCallback
     });
 
-When setting up the params you have a number of options. We are going to go
+When setting up the parameters you have a number of options. We are going to go
 into detail on a number of them here so you know just how each will effect your
 application.
 
@@ -625,7 +625,7 @@ To be on the safe side of browser bugs we still use::
 
     elem.dom.getAttribute('data-title')
 
-Using these data attributes we can create an event to auto play the video when
+Using these data attributes we can create an event to autoplay the video when
 a user clicks the thumbnail. In order the accomplish this we need to know that
 the url has a video associated with it. In the ``metadataCallback`` from above
 we actually change the ``type`` of the embed after we do a number of the checks
@@ -645,7 +645,7 @@ like so::
         <span class="player_overlay"></span>
     </a>
 
-This creates a an embed that looks like
+This creates an embed that looks like
 
 .. image:: https://github.com/embedly/embedly-tutorial-ext/raw/master/images/rdio_item.png
 
@@ -674,7 +674,7 @@ can build on additional features. Definitely check out the `demo
 <http://embedly.github.com/embedly-tutorial-ext>`_ and the `source code 
 <https://github.com/embedly/embedly-tutorial-ext>`_ for this project. It's
 heavily documented and deals with some of the little things like loading
-notifications and the like.
+notifications.
 
 If you have any questions or comments you can send us a note to
 support@embed.ly or submit an `issue 
