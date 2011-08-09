@@ -10,8 +10,8 @@ describing the process and design decisions that go into letting users submit
 links. Herein lies the bible of using Embedly to create a URL submission tool
 with `Ext Core <http://www.sencha.com/products/extcore/>`_.
 
-First off note that I am not an Ext expert. In fact this is the first I have
-ever used the tool. While I disagree with it's obsession with ids, I like how
+First off, note that I am not an Ext expert. In fact this is the first I have
+ever used the tool. While I disagree with its obsession with ids, I like how
 Ext creates HTML and the ``fly`` method. If you see anything that is off or
 just looks wrong, blame ignorance.
 
@@ -23,6 +23,9 @@ will fail hard. The source code is available at
 `github.com/embedly/embedly-tutorial-ext
 <https://github.com/embedly/embedly-tutorial-ext>`_. We encourage you to clone
 it and follow along.
+
+Overview
+--------
 
 What we are trying to build here is a fairly common design pattern that allows
 users to preview the metadata for a link before submitting it to their feed. If
@@ -68,6 +71,9 @@ always choose the best image. So the task is simple, create a form that allows
 a user to input a URL and select the thumbnail, title and description they wish
 to show. There are however a bunch of other considerations that you will
 invariable end up coming across that we will look at as well.
+
+Preview Endpoint
+----------------
 
 One of Embedly's API endpoints was specifically made for this task. The 
 `preview endpoint <http://embed.ly/docs/endpoints/1/preview>`_ expands on
@@ -225,6 +231,8 @@ object
     Don't bother messing with the height. People know how to scroll, so designs
     that are tolerant to different heights of images are the best.
 
+Retrieval
+---------
 There are two sections to the feed; retrieval and display. Retrieval is the
 long section that describes grabbing metadata from Embedly and allowing the
 user to edit it before submission. Display is much shorter and just goes into
@@ -329,8 +337,8 @@ This will catch any url as long as the user has entered the ``http`` or
 ``https`` scheme. As we know the scheme is becoming less and less prevalent and
 most users expect it to work if they leave out the ``http://``. For example it
 shouldn't matter if a user enters nyti.ms/qdGs9A or http://nyti.ms/qdGs9A. You
-could be clever here and just update the original regex, but I'm not today
-, so I will create a new one.
+could be clever here and just update the original regex, but I'm not, so I will
+create a new one.
 
     var urlexp = /[-\w]+(\.[a-z]{2,})+(\S+)?(\/|\/[\w#!:.?+=&%@!\-\/])?/g;
     
@@ -468,6 +476,8 @@ chars
         dapibus auctor aliquam. Donec ...
 
 
+Display
+-------
 Once you make the request we have to deal with the data that we get back from
 Embedly. We discussed the different parts of the object that we are going to
 use earlier, now it's just putting together the pieces. A lot of this is
