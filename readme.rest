@@ -7,32 +7,42 @@ overboard and ended up coding the whole thing. It's worth sharing with the
 community as a whole, because we have seen this question many times before.
 This post ended up being a lot longer than expected, some 4,000+ words
 describing the process and design decisions that go into letting users submit
-links. Herein lies the bible of using Embedly to create a URL submission tool.
-in `Ext Core <http://www.sencha.com/products/extcore/>`_.
+links. Herein lies the bible of using Embedly to create a URL submission tool
+with `Ext Core <http://www.sencha.com/products/extcore/>`_.
 
 First off note that I am not an Ext expert. In fact this is the first I have
-ever used the tool. While I disagree with it's obsession with ids I like how it
-creates HTML and the fly method. If you see anything that is off or just looks
-wrong, blame ignorance.
+ever used the tool. While I disagree with it's obsession with ids, I like how
+Ext creates HTML and the ``fly`` method. If you see anything that is off or
+just looks wrong, blame ignorance.
 
-We are trying to build a fairly common design pattern that allows users to
-preview the metadata for a link before submitting it to their feed. Below are a
-few screenshots from various different services. 
+The final demo is hosted at `embedly.github.com/embedly-tutorial-ext
+<http://embedly.github.com/embedly-tutorial-ext/>`_. You can submit a URL and
+see how all the interactions work. The demo is optimized for modern browsers
+and relies heavily on ``localStorage`` to display the Feed, so older browsers
+will fail hard. The source code is available at 
+`github.com/embedly/embedly-tutorial-ext
+<https://github.com/embedly/embedly-tutorial-ext>`_. We encourage you to clone
+it and follow along.
+
+What we are trying to build here is a fairly common design pattern that allows
+users to preview the metadata for a link before submitting it to their feed. If
+you have used Facebook, Google+, Yammer or any number of services you have seen
+this before. Below are a few screenshots from various different services. 
 
 Facebook
 
-.. image:: https://github.com/embedly/embedly-docs/raw/master/demo/ext/images/facebook.png
+.. image:: https://github.com/embedly/embedly-tutorial-ext/raw/master/images/facebook.png
 
 Yammer (Uses Embedly)
 
-.. image:: https://github.com/embedly/embedly-docs/raw/master/demo/ext/images/yammer.png
+.. image:: https://github.com/embedly/embedly-tutorial-ext/raw/master/images/yammer.png
 
 Google+
 
-.. image:: https://github.com/embedly/embedly-docs/raw/master/demo/ext/images/googleplus.png
+.. image:: https://github.com/embedly/embedly-tutorial-ext/raw/master/images/googleplus.png
 
 The interface for all three are fairly similar. Each has a textarea for the
-status and when a user enters a URL they all recognize it and fetch the
+status and when a user enters a URL, they all recognize it and fetch the
 metadata associated with the URL. The user can then select a thumbnail and
 edit the title and description. The question is why? Well it turns out that
 humans are much better at picking thumbnails, titles and descriptions than
@@ -41,7 +51,7 @@ all the metadata comes from. We will use the `10k Apart
 <http://10k.aneventapart.com/>`_ website as an example and this is a screenshot
 of the homepage at the time of writing.
 
-.. image:: https://github.com/embedly/embedly-docs/raw/master/demo/ext/images/10kapart.png
+.. image:: https://github.com/embedly/embedly-tutorial-ext/raw/master/images/10kapart.png
 
 Let's look at the metadata in the Facebook, Yammer, Google+ comparison from
 above. The title is the same for each, but the first image and description
@@ -50,7 +60,7 @@ pull data out of the page.  The `10k Apart <http://10k.aneventapart.com/>`_
 site doesn't specify any ``image_src``, ``og:image``, ``decription`` or
 ``og:description`` tags in the head of the html so it's everyman for themselves
 . Pulling the best image or a great excerpt is hard and when we let code handle
-it their are bound to be variance and incorrect data.
+it there is bound to be variance and incorrect data.
 
 When it comes down to it though, it should be up to the user. Any of the three
 images above could work, but at the end of the day a user, not code, will
@@ -215,10 +225,6 @@ object
     Don't bother messing with the height. People know how to scroll, so designs
     that are tolerate to different heights of images are the best.
 
-While the Preview endpoint passes back more metadata including content, events,
-places and embeds we will not be using that for this demo. We want to make this
-simple and allow people to build from there.
-
 There are two sections to the feed; retrieval and display. Retrieval is the
 long section that describes grabbing metadata from Embedly and allowing the
 user to edit it before submission. Display is much shorter and just goes into
@@ -229,7 +235,7 @@ We start off with the following simple form::
     <form action="." method="post">
         <textarea id="id_status" name="status">
         </textarea>
-        <input type="submit" value="submit"/>
+        <input type="submit" value="Save"/>
     </form>
 
 And the base for our Preview obj that we will use to wire up all the supporting
@@ -370,10 +376,10 @@ application.
 
 url
 
-    The url that you want to retrieve metadata for. Ext takes care of encoding
-    the URL, but if you aren't using a library you need to escape the URL.
-    Something like this works:
-    
+    The ``url`` that you want to retrieve metadata for. Ext takes care of
+    encoding the URL, but if you aren't using a library you need to escape the
+    URL. Something like this works:
+
         var url = encodeURIComponent('http://embed.ly')
 
 key
@@ -465,8 +471,8 @@ chars
 Once you make the request we have to deal with the data that we get back from
 Embedly. We discussed the different parts of the object that we are going to
 use earlier, now it's just putting together the pieces. A lot of this is
-actually up to the individual developer, but here are some tricks an tricks.
-We declare the ``metadataCallback`` from before as::
+actually up to the individual developer, but here are some tips an tricks. We
+declare the ``metadataCallback`` from before as::
 
     metadataCallback : function(obj){
       // Deal with the object here.
@@ -532,8 +538,9 @@ object. It also helped us create multiple versions of the demo::
 
     Preview.Display.render(obj);
 
-Rendering the link form is actually really boring. You are more than welcome to
-read the code, but at the end of the day, it's going to be up to you. The only
+Rendering the link form is actually pretty boring. You show read the `code 
+<https://github.com/embedly/embedly-tutorial-ext/blob/master/js/preview.js#L109>`_
+, but at the end of the day, it's going to be up to you. The only
 thing to remember is to to update the hidden inputs with the correct values
 after the user has changed any data. For example we run this after a user has
 updated the title::
@@ -597,12 +604,12 @@ of a feed item for us looks like so::
       </div>
     </div>
 
-We build that via a giant JSON object that you can see here ` <>`_. The
-important thing here is to also save the item data into div as data properties.
-The HTML5 spec describes a method for saving off `custom data attributes 
-<http://dev.w3.org/html5/spec/Overview.html#custom-data-attribute>`_ that we
-will use here. To add these attributes the the outer div '.item' we can use
-something like this when building the JSON object::
+We build that via a giant JSON object that you can see `here  <https://github.com/embedly/embedly-tutorial-ext/blob/master/js/preview.js#L440>`_
+. The important thing here is to also save the item data into div as data
+properties. The HTML5 spec describes a method for saving off `custom data
+attributes <http://dev.w3.org/html5/spec/Overview.html#custom-data-attribute>`_
+that we will use here. To add these attributes the the outer div ``.item`` we
+can use something like this when building the JSON object::
 
     Ext.each(Preview.attrs, function(n){
       elem['data-'+(n == 'html' ? 'embed' : n)] = encodeURIComponent(data[n])
@@ -640,7 +647,7 @@ like so::
 
 This creates a an embed that looks like
 
-.. image:: https://github.com/embedly/embedly-docs/raw/master/demo/ext/images/rdio_item.png
+.. image:: https://github.com/embedly/embedly-tutorial-ext/raw/master/images/rdio_item.png
 
 We can then use Ext to bind the click event to the ``Feed.playVideo`` callback::
 
@@ -659,18 +666,16 @@ with the embed html that we saved in custom data attributes::
 
 Once a user clicks the thumbnail, the end result looks like this:
 
-.. image:: https://github.com/embedly/embedly-docs/raw/master/demo/ext/images/rdio_expanded.png
+.. image:: https://github.com/embedly/embedly-tutorial-ext/raw/master/images/rdio_expanded.png
 
 While we could add a few other features here, we have chosen to keep it simple.
 Hopefully you have a good understanding of how all the parts fit together and
-can build on additional features. 
+can build on additional features. Definitely check out the `demo
+<http://embedly.github.com/embedly-tutorial-ext>`_ and the `source code 
+<https://github.com/embedly/embedly-tutorial-ext>`_ for this project. It's
+heavily documented and deals with some of the little things like loading
+notifications and the like.
 
-The source code for this project is at: 
-`github.com/embedly/embedly-tutorial-ext 
-<https://github.com/embedly/embedly-tutorial-ext>`_. Feel free to use it as a
-reference. It's heavily documented and deals with some of the little things
-like loading notifications and the like.
-
-You can check out the demo at `embedly.github.com/embedly-tutorial-ext 
-<http://embedly.github.com/embedly-tutorial-ext>`_. It uses ``localStorage`` to
-save and render the feed, so it will only work on modern browsers.
+If you have any questions or comments you can send us a note to
+support@embed.ly or submit an `issue
+<https://github.com/embedly/embedly-tutorial-ext/issues>`.

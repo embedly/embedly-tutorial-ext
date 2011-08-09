@@ -649,7 +649,7 @@ var Preview = (function(){
       // something is off. This is a basic check to make sure we should
       // proceed. Generally will never happen.
       if (!obj.hasOwnProperty('type')){
-        alert('Embedly returned an invalid response, or is down'); 
+        console.log('Embedly returned an invalid response'); 
         return false;
       }
 
@@ -657,7 +657,7 @@ var Preview = (function(){
       // endpoint will pass back an obj  of type 'error'. Generally this is
       // were the default workflow should happen.
       if (obj.type == 'error'){
-        alert('URL returned an error: '+ obj.url); 
+        console.log('URL ('+obj.url+') returned an error: '+ obj.error_message);
         return false;
       }
 
@@ -666,7 +666,7 @@ var Preview = (function(){
       // which I don't believe you have a good solution for yet. We could
       // wrap them in HTML5 tags, but won't work cross browser.
       if (!(obj.type in {'html':'', 'image':''})){
-        alert('URL returned a type not handled: '+ url); 
+        console.log('URL ('+obj.url+') returned a type ('+obj.type+') not handled'); 
         return false;
       }
       
